@@ -210,7 +210,6 @@ a.tab-title:focus {
 #btnClear {
     border-color: #ccc;
     color: #4c4c4c;
-    margin-left: 2vw;
 }
 
 #btnClear:hover {
