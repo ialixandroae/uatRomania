@@ -1,0 +1,284 @@
+/* Type selectors */
+
+a {
+    text-decoration: none!important;
+}
+
+div.column-2 {
+    float: right;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    width: 100%;
+}
+
+p a {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #FFFFFF;
+}
+
+p a:hover {
+    color: #000000;
+}
+
+p.author {
+    float: right;
+    font-size: 12px;
+    left: 270px;
+    position: absolute;
+    top: 38px;
+}
+
+p.dataSource {
+    float: right;
+    font-size: 12px;
+    left: 170px;
+    position: absolute;
+    top: 38px;
+}
+
+p.separator {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #FFFFFF;
+    float: right;
+    font-size: 10px;
+    left: 263px;
+    position: absolute;
+    top: 38px;
+}
+
+table th {
+    width: 50px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+/* Class selectors */
+
+a.tab-title:hover,
+a.tab-title:focus {
+    background-color: #fcfcfc;
+    text-decoration: none;
+    -webkit-background-image: linear-gradient(to top, transparent 94%, #58b28d 96%, #79b743 100%);
+    -moz-background-image: linear-gradient(to top, transparent 94%, #58b28d 96%, #79b743 100%);
+    -o-background-image: linear-gradient(to top, transparent 94%, #58b28d 96%, #79b743 100%);
+    background-image: linear-gradient(to top, transparent 94%, #58b28d 96%, #79b743 100%);
+}
+
+.btn.btn-clear {
+    margin-left: 10px;
+}
+
+.btn.btn-transparent.dropdown-btn.js-dropdown-toggle {
+    border: 1px solid #ccc;
+    color: #4c4c4c;
+}
+
+.column-16 .top-nav-title {
+    font-size: 24px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #FFFFFF;
+}
+
+.column-16 .top-nav-link {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #FFFFFF;
+}
+
+.column-16 .top-nav-title:hover,
+.column-16 .top-nav-link:hover {
+    color: #000000;
+    border: none;
+}
+
+.column-24.leader-quarter #frontSelect,
+.column-24.leader-quarter #lastSelect {
+    float: left;
+    margin-top: 20px;
+    width: 80px;
+}
+
+.column-24.leader-quarter #lastSelect {
+    margin-left: 240px;
+}
+
+.column-24.leader-quarter .column-16 {
+    border: 1px solid #ccc;
+    min-height: 85vh;
+    padding: .25em;
+}
+
+.column-24.leader-quarter .column-8 {
+    min-height: 76vh;
+    padding: .25em;
+}
+
+.column-6 {
+    position: relative;
+}
+
+.esri-footer-brand-image {
+    margin-top: 10px;
+    fill: #FFFFFF;
+    float: right;
+}
+
+.esri-footer-brand-image:hover {
+    fill: #000000;
+}
+
+.esri-popup-renderer img {
+    max-width: 15px;
+}
+
+.esri-search {
+    border: 1px solid #ccc;
+    width: 350px;
+}
+
+.esri-view-height-less-than-medium .esri-popup__main-container {
+    height: 1200px;
+}
+
+.esri-view-width-medium .esri-popup__main-container {
+    width: 600px;
+}
+
+
+/* .esri-popup__header {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0)), linear-gradient(180deg, #58b28d, #79b743);
+}
+
+.esri-popup__content {
+    margin: 0px;
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0)), linear-gradient(180deg, #79b743, #FFFFFF);
+} */
+
+.icon-social-facebook,
+.icon-social-twitter,
+.icon-social-linkedin,
+.icon-social-contact {
+    margin-right: 10px;
+}
+
+.leader-quarter h6 {
+    margin-top: 25px;
+}
+
+.modifier-class.trailer-2.js-tab-group {
+    margin-bottom: 0;
+}
+
+.svg-icon {
+    float: right;
+    width: auto;
+}
+
+.tab-contents {
+    height: 80vh;
+}
+
+.tab-section.is-active {
+    min-height: 79vh;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.tab-section.js-tab-section label {
+    margin-bottom: 4px;
+}
+
+.tab-title {
+    color: #4c4c4c;
+}
+
+.top-nav.fade-in {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.15)), linear-gradient(135deg, #58b28d, #79b743);
+}
+
+
+/* ID selectors */
+
+#btnClear {
+    border-color: #ccc;
+    color: #4c4c4c;
+    margin-left: 2vw;
+}
+
+#btnClear:hover {
+    background-color: #ccc;
+}
+
+#bulletSymbol {
+    float: left;
+    margin-top: 5px;
+}
+
+#dropDownValues {
+    border: 1px solid #ccc;
+    height: 63vh;
+    left: 155px;
+    overflow: auto;
+    top: 0;
+}
+
+
+#map {
+    min-height: 85vh;
+}
+
+#note {
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+#searchJudete {
+    margin-left: 15px;
+}
+
+#sliderBar {
+    width: 400px;
+}
+
+#sliderBar .noUi-connect {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.15)), linear-gradient(135deg, #58b28d, #79b743);
+}
+
+#sliderBar.noUi-horizontal {
+    height: 12px;
+}
+
+#sliderBar.noUi-horizontal .noUi-handle {
+    height: 25px;
+    left: -10px;
+    top: -6px;
+    width: 15px;
+}
+
+#sliderBar.noUi-horizontal .noUi-handle:after,
+#sliderBar.noUi-horizontal .noUi-handle:before {
+    display: none;
+}
+
+#table-scroll {
+    height: 63vh;
+    overflow: auto;
+}
+
+#table-wrapper {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    position: relative;
+}
+
+#table-wrapper table {
+    width: 100%;
+}

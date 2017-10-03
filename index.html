@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Romania`s UAT</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.1.0/nouislider.min.css">
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.0-rc.7/css/calcite-web.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+    <script type="text/javascript" src="dojoConfig.js"></script>
+    <script defer type="text/javascript" src="https://js.arcgis.com/4.5"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.1.0/nouislider.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!--ARCADE SCRIPTS-->
+    <script type="text/plain" id="populationChanges">
+        var pop2007 = $feature.Anul_2007; var pop2017 = $feature.Anul_2017; var ratio = (((pop2007 - pop2017) * 100) / pop2007) * (-1); return ratio;
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="top-nav fade-in">
+        <div class="grid-container">
+            <div class="column-16">
+                <a href="#" target="_blank" class="top-nav-title">10 Years of Changes - Romania`s Population Evolution</a>
+                <nav class="top-nav-list" role="navigation" aria-labelledby="topnav">
+                    <a class="top-nav-link" href="http://esri.github.io/calcite-web/" target="_blank">Calcite Theme</a>
+                    <a class="top-nav-link" href="https://developers.arcgis.com/javascript/" target="_blank">ArcGIS API for JavaScript</a>
+                    <a class="top-nav-link" href="https://developers.arcgis.com/documentation/" target="_blank">Docs</a>
+                </nav>
+            </div>
+            <div class="column-6">
+                <p class="dataSource"><a href="http://www.insse.ro/cms/en" target="_blank">Data source: INS</a></p>
+                <p class="separator"> | </p>
+                <div class="author_content">
+                    <p class="author"><a href="https://twitter.com/ialixandroae" target="_blank">Ionut Alixandroae</a></p>
+                </div>
+
+            </div>
+            <div class="column-2">
+                <a href="http://www.esri.com/about-esri" target="_blank"><svg class="esri-footer-brand-image" width="50" height="50" viewBox="0 0 114 90" role="presentation"><path d="M2.229.1l-.56 4.146h5.266l-2.13 14.678H9.4l2.129-14.678h5.154L17.243.1zm29.02 0l-.896 6.835h-7.284L23.966.1h-4.594l-2.577 18.824h4.594l1.12-7.843h7.283l-1.12 7.843h4.594L35.843.1zm20.392 4.258L52.201.1H39.205l-2.577 18.824h13.446l.56-4.258H41.78l.448-3.137h7.956l.56-4.258H42.79l.448-2.913zM13.658 33.042c-.337-.337-.785-.673-1.345-1.009-.448-.224-1.008-.448-1.457-.672-.448-.224-1.008-.336-1.456-.448-.448-.112-.897-.336-1.233-.448s-.56-.337-.784-.56c-.112-.225-.224-.449-.224-.785s.112-.56.336-.784c.112-.224.336-.336.672-.449.224-.112.56-.224.897-.336.784-.224 1.568-.112 2.353.224.448.225.784.449 1.12.785l.224.224 3.586-3.474-.224-.224a7.121 7.121 0 0 0-2.465-1.568c-1.793-.56-3.81-.673-5.715-.112-.896.224-1.792.672-2.465 1.12-.784.56-1.344 1.12-1.905 1.905s-.896 1.68-1.008 2.689c-.112 1.12 0 1.905.336 2.577a3.957 3.957 0 0 0 1.457 1.569c.56.336 1.232.672 2.017.896.672.224 1.344.448 1.904.672.56.224 1.009.449 1.457.785.336.224.448.56.336 1.008 0 .224-.112.56-.336.672-.336.673-.56.785-.784.897s-.56.224-.897.336c-1.008.224-1.904.112-2.689-.336a2.22 2.22 0 0 1-1.232-1.233l-.224-.336L.1 40.325l.224.224c.784.896 1.68 1.456 2.69 1.792s2.128.56 3.36.56a11.3 11.3 0 0 0 2.802-.335c.896-.225 1.792-.673 2.465-1.12.784-.561 1.344-1.233 1.905-2.018.56-.784.896-1.68 1.008-2.8.112-.785.112-1.57-.112-2.13-.224-.56-.448-1.008-.784-1.456zm15.574 3.809c-.448.56-1.008 1.009-1.68 1.345s-1.345.448-2.13.448c-.672 0-1.344-.112-1.904-.448-.56-.224-1.009-.673-1.345-1.12-.336-.449-.672-1.121-.784-1.793-.112-.673-.224-1.457-.112-2.241.112-.785.336-1.569.672-2.241.336-.673.784-1.345 1.345-1.793s1.12-.896 1.792-1.12c.673-.225 1.345-.449 2.017-.449.672 0 1.345.112 1.793.336s.896.56 1.232 1.009l.112.224 3.922-2.801-.112-.224a4.776 4.776 0 0 0-1.232-1.345 7.144 7.144 0 0 0-1.57-.896c-.56-.224-1.12-.336-1.68-.448-.56-.112-1.12-.112-1.68-.112-1.457 0-2.802.224-4.146.672s-2.465 1.12-3.474 2.017c-1.008.896-1.904 1.904-2.577 3.137a12.24 12.24 0 0 0-1.344 4.034 10.149 10.149 0 0 0 .224 4.145c.336 1.233.896 2.241 1.68 3.138s1.793 1.568 2.914 2.016c1.12.449 2.465.673 3.921.673a10.18 10.18 0 0 0 3.922-.785c1.345-.56 2.465-1.344 3.361-2.465l.224-.224-3.473-2.913.112.224zm7.843-13.221l-2.577 18.824h4.594L41.67 23.63zm20.729 4.257l.672-4.257H45.48l-2.69 18.824h13.446l.672-4.258h-8.963l.448-3.138h7.955l.56-4.257h-7.843l.336-2.914zm17.367-4.257l-1.68 12.1-5.715-12.1h-5.938l-2.69 18.824h4.594l1.793-12.438 5.826 12.438h5.715l2.689-18.824zm18.152 13.221a4.961 4.961 0 0 1-1.681 1.345c-.672.336-1.345.448-2.129.448-.672 0-1.345-.112-1.905-.448-.56-.224-1.008-.673-1.344-1.12-.337-.449-.673-1.121-.785-1.793s-.224-1.457-.112-2.241c.112-.785.336-1.569.673-2.241.336-.673.784-1.345 1.344-1.793.56-.448 1.12-.896 1.793-1.12.672-.225 1.344-.449 2.017-.449s1.344.112 1.792.336.897.56 1.233 1.009l.112.224 3.922-2.801-.112-.224a4.776 4.776 0 0 0-1.233-1.345 7.144 7.144 0 0 0-1.569-.896c-.56-.224-1.12-.336-1.68-.448-.56-.112-1.12-.112-1.681-.112-1.457 0-2.801.224-4.146.672s-2.465 1.12-3.473 2.017c-1.009.896-1.905 1.904-2.577 3.137a12.239 12.239 0 0 0-1.345 4.034 10.149 10.149 0 0 0 .224 4.145 7.726 7.726 0 0 0 1.681 3.138c.784.896 1.793 1.568 2.913 2.016 1.12.449 2.465.673 3.922.673 1.232 0 2.577-.224 3.921-.785s2.465-1.344 3.362-2.465l.224-.224-3.474-2.913.113.224zm19.944-8.964l.672-4.257h-12.997l-2.69 18.824h13.446l.56-4.258h-8.851l.448-3.138h7.955l.56-4.257h-7.843l.336-2.914zM21.725 52.538c-.336-1.233-.896-2.241-1.68-3.138s-1.793-1.568-2.914-2.016c-1.12-.449-2.465-.673-3.922-.673s-2.8.224-4.145.673c-1.345.448-2.465 1.12-3.474 2.016s-1.905 1.905-2.577 3.138c-.672 1.232-1.12 2.577-1.344 4.033s-.112 2.914.224 4.146a7.726 7.726 0 0 0 1.68 3.137c.785.897 1.793 1.569 2.914 2.017 1.12.448 2.465.672 3.921.672s2.801-.224 4.146-.672a9.768 9.768 0 0 0 3.473-2.017c1.009-.896 1.905-1.904 2.577-3.137a12.24 12.24 0 0 0 1.345-4.034c.224-1.568.112-2.913-.224-4.145zM17.13 56.57c-.112.785-.336 1.569-.672 2.241-.336.673-.785 1.233-1.345 1.793-.56.448-1.12.896-1.905 1.12-.672.225-1.456.449-2.353.449-.784 0-1.568-.112-2.128-.449a3.64 3.64 0 0 1-1.457-1.12c-.448-.448-.672-1.12-.784-1.793-.112-.672-.224-1.456-.112-2.24s.336-1.57.672-2.242a4.96 4.96 0 0 1 1.344-1.68c.56-.448 1.12-.897 1.905-1.12.672-.225 1.457-.449 2.353-.449.785 0 1.569.112 2.13.448.56.224 1.12.673 1.568 1.12.448.449.672 1.121.784 1.793.112.56.224 1.345 0 2.13zm20.73-5.04l.672-4.37H25.647l-2.578 18.935h4.594l.897-7.17h7.619l.672-4.258h-7.619l.448-3.138zM23.966 70.801l-4.482 11.317L17.467 70.8h-4.146L8.055 81.894 6.935 70.8H1.893l3.025 18.824h3.81l5.602-12.101 2.129 12.101h4.033l8.18-18.824zm18.151 0l-.896 6.835h-7.283l.896-6.835H30.24l-2.577 18.824h4.594l1.12-7.955h7.284l-1.12 7.955h4.593l2.577-18.824zm20.393 4.258l.56-4.258H50.073l-2.577 18.824H60.94l.56-4.258h-8.85l.448-3.137h7.955l.56-4.37h-7.955l.448-2.801zm17.479 1.569c.112-1.12.112-2.017-.224-2.802-.336-.784-.784-1.344-1.345-1.792-.56-.448-1.344-.785-2.129-1.009-.784-.224-1.68-.224-2.689-.224H66.32l-2.69 18.824h4.594l1.009-7.283H70.8l2.801 7.283h5.49l-3.585-7.843c1.233-.336 2.241-.897 3.025-1.793.785-.896 1.345-2.017 1.457-3.361zm-9.636-1.905h2.353c.336 0 .672 0 1.008.112.337 0 .673.112.897.224.224.112.448.336.56.56s.112.56.112.897c-.112.448-.224.784-.448 1.008-.224.224-.448.448-.784.56-.337.112-.673.224-1.009.224h-3.137l.448-3.585zm25.547.336l.672-4.258H83.575l-2.69 18.824h13.446l.672-4.258H86.04l.448-3.137h7.955l.56-4.37H87.16l.336-2.801z"></path></svg></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <div class="column-24 leader-quarter">
+            <div class="column-8">
+                <!-- <blockquote>Contain the Columns</blockquote> -->
+                <div class="modifier-class trailer-2 js-tab-group">
+                    <nav class="tab-nav">
+                        <a class="tab-title is-active js-tab" id="allDataTab">All Data</a>
+                        <a class="tab-title js-tab">Statistics</a>
+                        <a class="tab-title js-tab">Legend</a>
+                        <a class="tab-title js-tab">Query</a>
+                        <a class="tab-title js-tab">Share</a>
+                    </nav>
+                    <section class="tab-contents">
+                        <article class="tab-section js-tab-section is-active">
+                            <p id="featuresLength">No. of Administrative Units: </p>
+                            <div id="searchBox"></div>
+                            <div id="table-wrapper">
+                                <div id="table-scroll">
+                                    <table class="table table-bordered table-hover table-striped tablesorter" id="dataTable">
+                                        <thead id="headTabel">
+                                        </thead>
+                                        <tbody id="bodyTabel">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="tab-section js-tab-section" id="chartsTab">
+                            <p>Search or click a feature to view data & chart</p>
+                        </article>
+                        <article class="tab-section js-tab-section" id="legendTab">
+                        </article>
+                        <article class="tab-section js-tab-section" id="filterTab">
+                            <div class="grid-container">
+                                <div class="column-4 leader-quarter">
+                                    <button class="btn btn-clear" id="btnClear">Clear filter</button>
+                                </div>
+
+                                <div class="column-4 leader-quarter">
+                                    <h6>Use this filter to query all data by Judet</h6>
+                                </div>
+
+                                <div class="column-4 leader-quarter">
+                                    <div class="dropdown js-dropdown">
+                                        <!-- extends side-nav -->
+                                        <button class="btn btn-transparent dropdown-btn js-dropdown-toggle" tabindex="0" aria-haspopup="true" aria-expanded="false">
+                                                          Select Judet
+                                                          <svg id="searchJudete" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon"><path d="M31.607 27.838l-6.133-6.137a1.336 1.336 0 0 0-1.887 0l-.035.035-2.533-2.533-.014.014c3.652-4.556 3.422-11.195-.803-15.42-4.529-4.527-11.875-4.531-16.404 0-4.531 4.531-4.529 11.875 0 16.406 4.205 4.204 10.811 4.455 15.365.848l.004.003-.033.033 2.541 2.54a1.33 1.33 0 0 0 .025 1.848l6.135 6.133a1.33 1.33 0 0 0 1.887 0l1.885-1.883a1.332 1.332 0 0 0 0-1.887zM17.811 17.809a8.213 8.213 0 0 1-11.619 0 8.217 8.217 0 0 1 0-11.622 8.219 8.219 0 0 1 11.619.004 8.216 8.216 0 0 1 0 11.618z"/></svg>
+                                                        </button>
+                                        <!-- extends side-nav -->
+                                        <nav id="dropDownValues" class="dropdown-menu modifier-class" role="menu">
+                                            <!-- extends side-nav-link -->
+                                            <span class="dropdown-title">Select to filter data ...</span>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="column-4 leader-quarter">
+                                    <h6>Use the sliderbar to filter all data by population changes</h6>
+                                    <h6 id="note">Note: If Judet is selected, slidebar will filter only in selected extent and values!</h6>
+                                </div>
+
+                                <div class="column-4 leader-quarter">
+                                    <div id="sliderBar">
+                                    </div>
+                                    <input type="number" id="frontSelect"></input>
+                                    <input type="number" id="lastSelect"></input>
+                                </div>
+
+                                <div class="column-4 leader-quarter">
+                                    <h6>Check to see all data with poulation gain/loss</h6>
+                                    <h6 id="note">Note: Using these queries will reset previous applied filters</h6>
+
+                                    <fieldset class="fieldset-radio">
+
+                                        <label><input type="radio" name="radio" value="blue" id="allData" checked>All Data
+                                        <label><input type="radio" name="radio" value="red" id="positiveData">Positive Changes
+                                        <label><input type="radio" name="radio" value="green" id="negativeData">Negative Changes
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="tab-section js-tab-section">
+                            <div>
+                                    <p>This application presents population evolution in Romania for each UAT, in every Judet from 2007 to 2017.<br></p>
+                                    <p> The data is represented in transparent circles for a negative evolution and in opaque circles for a positive evolution. <br></p>
+                                    <p>  The size of the symbols offer a perspective over the changes into a certain location or area. <br></p>
+                                    <p> Different functionalities are offered for the user to interact with the data: <br></p>
+                                    <ul>
+                                            <svg id="bulletSymbol"xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon"><path d="M16.047.447c-8.615 0-15.6 6.982-15.6 15.6 0 8.615 6.984 15.6 15.6 15.6 8.617 0 15.6-6.984 15.6-15.6 0-8.617-6.982-15.6-15.6-15.6zm0 28.799c-7.279 0-13.199-5.92-13.199-13.199s5.92-13.2 13.199-13.2 13.199 5.921 13.199 13.2-5.92 13.199-13.199 13.199zm-5-5.199l8-8-8-8h5l8 8-8 8z"/></svg>
+                                            <li>Select one UAT by clicking or searching it in the search box and observe evolution statistics</li>
+                                            <svg id="bulletSymbol"xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon"><path d="M16.047.447c-8.615 0-15.6 6.982-15.6 15.6 0 8.615 6.984 15.6 15.6 15.6 8.617 0 15.6-6.984 15.6-15.6 0-8.617-6.982-15.6-15.6-15.6zm0 28.799c-7.279 0-13.199-5.92-13.199-13.199s5.92-13.2 13.199-13.2 13.199 5.921 13.199 13.2-5.92 13.199-13.199 13.199zm-5-5.199l8-8-8-8h5l8 8-8 8z"/></svg>
+                                            <li>Filter data by Judet or change the values of the slidebar for customized intervals</li>
+                                            <svg id="bulletSymbol"xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon"><path d="M16.047.447c-8.615 0-15.6 6.982-15.6 15.6 0 8.615 6.984 15.6 15.6 15.6 8.617 0 15.6-6.984 15.6-15.6 0-8.617-6.982-15.6-15.6-15.6zm0 28.799c-7.279 0-13.199-5.92-13.199-13.199s5.92-13.2 13.199-13.2 13.199 5.921 13.199 13.2-5.92 13.199-13.199 13.199zm-5-5.199l8-8-8-8h5l8 8-8 8z"/></svg>
+                                            <li>See all positive or negative values</li>
+                                          </ul>
+                                    
+                            </div>
+                            
+                            <label>Give a Share!</label>
+                                        <div id="shareIcons">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://ialixandroae.github.io/uatRomania/" target="_blank">
+                                                <span class="icon-social-facebook" aria-label="Facebook" title="Share to Facebook"></span>
+                                            </a>
+
+                                            <a href="http://twitter.com/share?url=https://ialixandroae.github.io/uatRomania/'+encodeURIComponent(https://ialixandroae.github.io/uatRomania/)&text=Population evolution in Romania over 10 years: https://ialixandroae.github.io/uatRomania/index.html"
+                                                target="_blank">
+                                                <span class="icon-social-twitter" aria-label="Twitter" title="Share to Twitter"></span>
+                                            </a>
+
+                                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://ialixandroae.github.io/uatRomania/&title=Population evolution in Romania over 10 years: https://ialixandroae.github.io/uatRomania/" target="_blank">
+                                                <span class="icon-social-linkedin" aria-label="LinkedIn" title="Share to LinkedIn"></span>
+                                            </a>
+
+                                            <a href="mailto:?body=Check out this app: https://ialixandroae.github.io/uatRomania/" title="Population evolution in Romania over 10 years" target="_blank">
+                                                <span class="icon-social-contact" aria-label="Mail" title="Share on e-mail"></span>
+                                            </a>
+                                            <a href="https://github.com/ialixandroae/uatRomania" target="_blank">
+                                                <span class="icon-social-github" aria-label="Mail" title="See app on GitHub"></span>
+                                            </a>
+                                        </div>
+
+
+
+                        </article>
+                    </section>
+                    </div>
+                    </div>
+
+                    <div class="column-16">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Just before end of body -->
+            <script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.0-rc.7/js/calcite-web.min.js"></script>
+
+            <script>
+                calcite.init();
+            </script>
+
+</body>
+
+</html>
