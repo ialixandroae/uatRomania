@@ -82,19 +82,32 @@ a.tab-title:focus {
     color: #4c4c4c;
 }
 
-.column-16 .top-nav-title {
+.column-20 .top-nav-title {
     font-size: 24px;
     font-family: 'Josefin Sans', sans-serif;
     color: #FFFFFF;
 }
 
-.column-16 .top-nav-link {
+.column-20 .top-nav-link {
     font-family: 'Josefin Sans', sans-serif;
     color: #FFFFFF;
 }
 
-.column-16 .top-nav-title:hover,
-.column-16 .top-nav-link:hover {
+.column-20 .top-nav-title:hover,
+.column-20 .top-nav-link:hover {
+    color: #000000;
+    border: none;
+}
+
+.column-20 .top-nav-link#sourceAuthor {
+    margin-top: 0.1em;
+    font-size: 12px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #FFFFFF;
+}
+
+.column-20 .top-nav-link#sourceAuthor:hover {
+
     color: #000000;
     border: none;
 }
@@ -113,11 +126,11 @@ a.tab-title:focus {
 .column-24.leader-quarter .column-16 {
     border: 1px solid #ccc;
     min-height: 85vh;
-    padding: .25em;
+    padding: .63em;
 }
 
 .column-24.leader-quarter .column-8 {
-    min-height: 76vh;
+    min-height: 85vh;
     padding: .25em;
 }
 
@@ -183,7 +196,7 @@ a.tab-title:focus {
 }
 
 .tab-contents {
-    height: 80vh;
+    height: calc(85vh - 20px);
 }
 
 .tab-section.is-active {
