@@ -23,3 +23,8 @@ The following APIs have been used to create this application:
 * <a target="blank" href="https://github.com/Esri/calcite-web">Esri Calcite Web</a>
 * <a target="blank" href="https://www.highcharts.com/">Highcharts</a>
 * <a target="blank" href="https://github.com/leongersen/noUiSlider">noUISlider</a>
+
+## Notice
+
+The application is not designed/implemented to be responsive to different browser resolutions and aspect ratios;
+If the application is not loaded full page, zoom-in in the browser by 25% and refresh;
