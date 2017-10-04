@@ -42,13 +42,10 @@ define([
                     lyr.queryFeatures().then(function(results) {
                         date = results.features;
                         // console.log(date);
-
-
                         var pt = new Point({
                             longitude: date[0]["attributes"]["POINT_X"],
                             latitude: date[0]["attributes"]["POINT_Y"]
                         });
-                        
                         var opts = {
                             duration: 2000
                         };
@@ -58,7 +55,9 @@ define([
                             zoom: 8
                         }, opts);
 
-                        
+                        console.log(mapView.ui.searchWidget)
+                        mapView.popup.close();
+
                         listaValori = [];
                         date.forEach(function(result) {
                             var attributes = result.attributes;
