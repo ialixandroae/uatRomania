@@ -27,4 +27,3 @@ The following APIs have been used to create this application:
 ## Notice
 
 The application is not designed/implemented to be responsive to different browser resolutions and aspect ratios;
-If the application is not loaded full page, zoom-in in the browser by 25% and refresh;
