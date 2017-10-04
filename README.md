@@ -19,7 +19,7 @@ Different functionalities are offered for the user to interact with the data:
 ## Resources
 
 The following APIs have been used to create this application:
-* <a target="blank" href="https://developers.arcgis.com/javascript/">ArcGIS JS API 4.3</a>
+* <a target="blank" href="https://developers.arcgis.com/javascript/">ArcGIS JS API 4.5</a>
 * <a target="blank" href="https://github.com/Esri/calcite-web">Esri Calcite Web</a>
 * <a target="blank" href="https://www.highcharts.com/">Highcharts</a>
 * <a target="blank" href="https://github.com/leongersen/noUiSlider">noUISlider</a>
