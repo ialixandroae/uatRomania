@@ -1,7 +1,9 @@
 define([
-    "dojo/_base/declare"
+    "dojo/_base/declare",
+    "esri/geometry/Point",
 ], function(
-    declare
+    declare,
+    Point
 ) {
     var clazz = {
         getData: function(layer, lyr, mapView) {
@@ -34,12 +36,29 @@ define([
                     numeSelectie[0].innerHTML = child.innerHTML + simbol;
                     expresie = "Judet = '" + child.innerHTML + "'";
                     lyr.definitionExpression = expresie;
+                    
                     var allData = document.getElementById("allData");
                     allData.checked = true;
                     lyr.queryFeatures().then(function(results) {
                         date = results.features;
                         // console.log(date);
 
+
+                        var pt = new Point({
+                            longitude: date[0]["attributes"]["POINT_X"],
+                            latitude: date[0]["attributes"]["POINT_Y"]
+                        });
+                        
+                        var opts = {
+                            duration: 2000
+                        };
+
+                        mapView.goTo({
+                            target: pt,
+                            zoom: 8
+                        }, opts);
+
+                        
                         listaValori = [];
                         date.forEach(function(result) {
                             var attributes = result.attributes;
